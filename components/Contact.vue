@@ -47,6 +47,7 @@
           ></textarea>
           <label for="message" class="form__label">Message</label>
         </div>
+        <div data-netlify-recaptcha></div>
         <div class="form__group">
           <button type="submit" class="btn btn--primary">Send &rarr;</button>
         </div>
