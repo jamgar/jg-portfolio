@@ -28,14 +28,6 @@ export default {}
   background-position: top;
   position: relative;
 
-  // @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) or
-  //   (-moz-clip-path: polygon(0 0)) {
-  //   height: 95vh;
-  //   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  //   -moz-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  //   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  // }
-
   @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
     only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
     only screen and (min-width: 125em) {
@@ -47,12 +39,6 @@ export default {}
       ),
       url(../assets/images/banner.jpg);
   }
-
-  // @include respond(phone) {
-  //   -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
-  //   -moz-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
-  //   clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
-  // }
 
   &__logo-box {
     position: absolute;

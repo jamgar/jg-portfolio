@@ -16,6 +16,9 @@
           <nuxt-link to="/#about" class="navigation__link">Who am i</nuxt-link>
         </li>
         <li class="navigation__item">
+          <nuxt-link to="/blogs" class="navigation__link">Blogs</nuxt-link>
+        </li>
+        <li class="navigation__item">
           <nuxt-link to="/#contact" class="navigation__link"
             >Contact me</nuxt-link
           >
@@ -94,7 +97,7 @@ export default {
     opacity: 0;
     position: fixed;
     top: 0;
-    left: 0;
+    left: -200px;
     z-index: 1500;
     transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
@@ -148,6 +151,7 @@ export default {
   &__checkbox:checked ~ &__nav {
     width: 100%;
     opacity: 1;
+    left: 0;
   }
   // ICON
   &__icon {

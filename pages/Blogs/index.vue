@@ -1,7 +1,11 @@
 <template>
-  <div>
+  <div class="blogs">
     <h2 class="heading-secondary">Blogs</h2>
-    <BlogCard />
+    <div class="cards">
+      <BlogCard />
+      <BlogCard />
+      <BlogCard />
+    </div>
   </div>
 </template>
 
@@ -15,4 +19,21 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.blogs {
+  max-width: 114rem;
+  margin: 0 auto;
+
+  & > h2 {
+    display: block;
+    text-align: center;
+    margin-bottom: 4rem;
+    margin-top: 8rem;
+  }
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+</style>
