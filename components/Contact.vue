@@ -2,7 +2,19 @@
   <div id="contact" class="contact">
     <div class="contact__form">
       <h2 class="heading-secondary">Contact Me</h2>
-      <form action="#" class="form">
+      <form
+        action="/success"
+        class="form"
+        netlify-honeypot="bot-field"
+        data-netlify-recaptcha="true"
+        data-netlify="true"
+      >
+        <p class="hidden">
+          <label>
+            Don't fill this out if you're human:
+            <input name="bot-field" />
+          </label>
+        </p>
         <div class="form__group">
           <input
             id="name"
@@ -117,5 +129,8 @@ export default {}
     visibility: hidden;
     transform: translateY(-4rem);
   }
+}
+.hidden {
+  display: none;
 }
 </style>
