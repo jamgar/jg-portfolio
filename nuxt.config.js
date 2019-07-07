@@ -11,7 +11,7 @@ const getSlugs = (blog, index) => {
 }
 
 const getDynamicRoutes = () => {
-  return files.map(getGlugs)
+  return files.map(getSlugs)
 }
 
 export default {
