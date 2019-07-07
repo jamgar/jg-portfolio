@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Thank you for you contacting me.</p>
+    <p class="success-message">Thank you for you contacting me.</p>
   </div>
 </template>
 
@@ -8,4 +8,12 @@
 export default {}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.success-message {
+  font-size: 2rem;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+}
+</style>
