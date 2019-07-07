@@ -2,9 +2,7 @@
   <div class="blogs">
     <h2 class="heading-secondary">Blogs</h2>
     <div class="cards">
-      <BlogCard />
-      <BlogCard />
-      <BlogCard />
+      <BlogCard v-for="(blog, idx) in Blogs" :key="idx" :blog="blog" />
     </div>
   </div>
 </template>
@@ -15,6 +13,11 @@ import BlogCard from '@/components/BlogCard'
 export default {
   components: {
     BlogCard
+  },
+  computed: {
+    Blogs() {
+      return this.$store.state.blogs
+    }
   }
 }
 </script>

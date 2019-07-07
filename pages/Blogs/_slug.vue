@@ -2,27 +2,39 @@
   <article :key="$route.params.slug" class="blog">
     <header class="blog__header">
       <div class="blog__img">
-        <img src="~/assets/images/goals-and-direction.jpg" alt="Image" />
+        <img
+          v-if="attributes.thumbnail"
+          src="attributes.thumbnail"
+          alt="attributes.title"
+        />
       </div>
-      <h1 class="heading-secondary blog__heading">Title</h1>
-      <p class="blog__meta">Jan 01, 2019</p>
+      <h1 class="heading-secondary blog__heading">{{ attributes.title }}</h1>
+      <p class="blog__meta">
+        {{ attributes.date | moment('dddd, MMMM Do YYYY') }}
+      </p>
     </header>
     <div class="blog__content">
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur
-        beatae doloremque maxime a error, obcaecati assumenda aliquam
-        distinctio, mollitia harum optio laborum veritatis numquam voluptatum
-        accusamus, quisquam doloribus rem blanditiis. Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Aspernatur esse quas corporis non
-        similique sint deleniti fuga dolore minima cumque, id cupiditate ad
-        aliquid minus incidunt corrupti commodi saepe consequatur.
-      </p>
+      <p v-html="content"></p>
     </div>
   </article>
 </template>
 
 <script>
-export default {}
+const md = require('markdown-it')({
+  breaks: true,
+  linkify: true,
+  html: true
+}).use(require('markdown-it-highlightjs'))
+
+export default {
+  async asyncData({ params }) {
+    const fileContent = await import(`~/content/blogs/${params.slug}.md`)
+    return {
+      attributes: fileContent.attributes,
+      content: md.render(fileContent.body)
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

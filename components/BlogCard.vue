@@ -2,19 +2,21 @@
   <div class="blog-card blog-card--animated">
     <div class="blog-card__picture">
       <img
-        v-if="true"
-        src="~/assets/images/goals-and-direction.jpg"
-        alt="image"
+        v-if="blog.attributes.thumbnail"
+        :src="blog.attributes.thumbnail"
+        :alt="blog.attributes.title"
       />
       <span v-else class="blog-card__alt">&nbsp;</span>
     </div>
     <h4 class="blog-card__heading">
-      <nuxt-link class="heading__link" to="/blogs/1"
-        >TITLE WHAT IF IT GOES LONGER THAN USUAL?</nuxt-link
-      >
+      <nuxt-link class="heading__link" :to="blog._path">
+        {{ blog.attributes.title }}
+      </nuxt-link>
     </h4>
     <div class="blog-card__body">
-      <p class="blog-card__meta">Jan 01, 2019</p>
+      <p class="blog-card__meta">
+        {{ blog.attributes.date | moment('dddd, MMMM Do YYYY') }}
+      </p>
       <p class="blog-card__text">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque quos
         doloremque voluptate minima iusto.
@@ -24,7 +26,29 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    blog: {
+      type: Object,
+      default: function() {
+        return {}
+      }
+    }
+  },
+  computed: {
+    getFormattedDescription() {
+      return {
+        content: this.truncate()
+      }
+    }
+  },
+  methods: {
+    truncate() {
+      const description = this.blog.attributes.description
+      return description.substring(0, 255)
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -60,6 +84,7 @@ export default {}
     font-size: 2rem;
     font-weight: 300;
     text-align: center;
+    text-transform: uppercase;
     margin-top: 1rem;
     width: 100%;
   }

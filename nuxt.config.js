@@ -1,3 +1,19 @@
+import fs from 'fs'
+import md from 'markdown-it'
+import pkg from './package'
+
+const files = fs.readdirSync('./content/blogs')
+
+const getSlugs = (blog, index) => {
+  const slug = blog.substr(0, blog.lastIndexOf('.'))
+  console.log('slug', slug)
+  return `/blogs/${slug}`
+}
+
+const getDynamicRoutes = () => {
+  return files.map(getGlugs)
+}
+
 export default {
   mode: 'universal',
   /*
@@ -30,11 +46,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/css/main.scss'],
+  css: ['@/assets/css/main.scss', 'highlight.js/styles/hopscotch.css'],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/moment.js'],
   /*
    ** Nuxt.js modules
    */
@@ -44,6 +60,9 @@ export default {
       '~/assets/css/abstracts/_variables.scss',
       '~/assets/css/abstracts/_animations.scss'
     ]
+  },
+  generate: {
+    routes: getDynamicRoutes
   },
   /*
    ** Build configuration
@@ -62,6 +81,10 @@ export default {
           exclude: /(node_modules)/
         })
       }
+      config.module.rules.push({
+        test: /\.md$/,
+        loader: 'frontmatter-markdown-loader'
+      })
     }
   }
 }
