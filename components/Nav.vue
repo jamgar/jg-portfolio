@@ -10,7 +10,7 @@
     <nav class="navigation__nav">
       <ul class="navigation__list" @click="closeMenu">
         <li class="navigation__item">
-          <nuxt-link to="/#" class="navigation__link">Home</nuxt-link>
+          <nuxt-link to="/#home" class="navigation__link">Home</nuxt-link>
         </li>
         <li class="navigation__item">
           <nuxt-link to="/#about" class="navigation__link">Who am i</nuxt-link>
@@ -56,16 +56,6 @@ export default {
     box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
     text-align: center;
     cursor: pointer;
-
-    // @include respond(tab-port) {
-    //   top: 4rem;
-    //   right: 4rem;
-    // }
-
-    // @include respond(phone) {
-    //   top: 3rem;
-    //   right: 3rem;
-    // }
   }
   &__background {
     height: 6rem;
@@ -80,16 +70,6 @@ export default {
     );
     z-index: 1000;
     transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
-
-    // @include respond(tab-port) {
-    //   top: 4.5rem;
-    //   right: 4.5rem;
-    // }
-
-    // @include respond(phone) {
-    //   top: 3.5rem;
-    //   right: 3.5rem;
-    // }
   }
   &__nav {
     height: 100vh;
