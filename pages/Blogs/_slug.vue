@@ -4,8 +4,8 @@
       <div class="blog__img">
         <img
           v-if="attributes.thumbnail"
-          src="attributes.thumbnail"
-          alt="attributes.title"
+          :src="attributes.thumbnail"
+          :alt="attributes.title"
         />
       </div>
       <h1 class="heading-secondary blog__heading">{{ attributes.title }}</h1>
