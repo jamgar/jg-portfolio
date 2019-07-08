@@ -2,7 +2,7 @@
 title: Not Another Blog
 tags: 'blog, demo'
 date: 2017-05-05T23:44:47.000Z
-thumbnail: /images/uploads/mic.jpg
+thumbnail: /images/uploads/avatar.jpg
 description: >
   Cred VHS farm-to-table poke, waistcoat pinterest food truck hexagon authentic.
   Meggings fashion axe 8-bit umami. Man braid brunch put a bird on it gochujang,
